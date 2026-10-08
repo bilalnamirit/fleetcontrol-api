@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: fleetcontrol
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fleetcontrol
+    username: fleetcontrol
+    password: fleetcontrol
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
