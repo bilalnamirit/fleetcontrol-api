@@ -4,8 +4,12 @@ CREATE TABLE vehicles(
     brand           VARCHAR(50) NOT NULL,
     model           VARCHAR(50) NOT NULL, 
     year            INT NOT NULL,
-    mileage         INT NOT NULL DEFAULT 0 CHECK (mileage > 0),
+    mileage         INT NOT NULL DEFAULT 0 CHECK (mileage >= 0),
     status          VARCHAR(20) NOT NULL,
     owner_id        BIGINT  NOT NULL REFERENCES users (id),
-    created_at      TIMESTAMPTZ NOT NULL DEFAULT now()               
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT now() 
+
 );
+
+    CREATE INDEX idx_vehicles_owner_id ON vehicles (owner_id);
+    CREATE INDEX idx_vehicles_status ON vehicles (status);
